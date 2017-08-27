@@ -1,5 +1,6 @@
 package com.example.ngockhanh.graphics2dandcustomview;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.res.ColorStateList;
@@ -19,6 +20,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -68,6 +70,7 @@ public class ItemView extends View {
     }
 
 
+
     void init(@Nullable AttributeSet set) {
         mPaintSquare = new Paint(Paint.ANTI_ALIAS_FLAG);
         if (set == null) return;
@@ -77,7 +80,7 @@ public class ItemView extends View {
         itemRadius = ta.getDimensionPixelOffset(R.styleable.ItemView_item_radius, RADIUS_DEF);
         drawable = ta.getDrawable(R.styleable.ItemView_item_image_src);
         mItem = new Item(0, 0);
-
+        this.setPadding(50,50,50,50);
 
         if (drawable != null) {
             putImage = ((BitmapDrawable) drawable).getBitmap();
@@ -85,7 +88,7 @@ public class ItemView extends View {
 
         } else {
             putImage = BitmapFactory.decodeResource(getResources(), R.drawable.image);
-             putImage = Bitmap.createScaledBitmap(putImage, itemSize, itemSize, true);
+            putImage = Bitmap.createScaledBitmap(putImage, itemSize, itemSize, true);
         }
 
 
@@ -206,15 +209,14 @@ public class ItemView extends View {
             mPain.setShader(new BitmapShader(putImage, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
             paint.setColor(Color.RED);
-        /*
-*/
+            float a = (float) (0.15 * (mX + itemSize));
+            float radius = (float) (a * (2.0 / 3));
             // paint.setShader(new BitmapShader(putImage, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            canvas.drawRoundRect(new RectF(mX, mY, mWidth + mX, mHeight + mY), itemRadius, itemRadius, mPain);
-           float a= (float) (0.15*(mX+itemSize));
-           // Toast.makeText(getContext(),"A:"+(float)(3.0/2),Toast.LENGTH_LONG).show();
-            float radius=(float)(a*(2.0/3));
-           canvas.drawCircle(mX+itemSize-(float)(a*1.0/2), mY+(float)(2.0*a/3),radius,paint);
+            canvas.drawRoundRect(new RectF(mX+(float)(0.45*radius), mY+(float)(0.45*radius), mWidth + mX, mHeight + mY), itemRadius, itemRadius, mPain);
 
+            Toast.makeText(getContext(),"A:"+radius,Toast.LENGTH_LONG).show();
+
+            canvas.drawCircle(mX + itemSize - (float) (a * 1.0 / 2), mY + (float) (2.0 * a / 3), radius, paint);
         }
 
     }
