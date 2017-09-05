@@ -12,9 +12,6 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
@@ -23,17 +20,10 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
-import android.text.Layout;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
+
 
 /**
  * Created by Ngoc Khanh on 8/25/2017.
@@ -103,7 +93,6 @@ public class ItemView extends View {
     public ItemView(Context context) {
         super(context);
         init(null);
-
     }
 
     public ItemView(Context context, @Nullable AttributeSet attrs) {
@@ -121,7 +110,6 @@ public class ItemView extends View {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
     }
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -131,8 +119,6 @@ public class ItemView extends View {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-
-
         if (widthMode == MeasureSpec.EXACTLY) {
             width = widthSize;
         } else if (widthMode == MeasureSpec.AT_MOST) {
@@ -148,10 +134,7 @@ public class ItemView extends View {
         } else {
             height = desiredHeight;
         }
-
         setMeasuredDimension(width, height + 50);
-
-
     }
 
     void init(@Nullable AttributeSet set) {
@@ -166,8 +149,6 @@ public class ItemView extends View {
         drawable = ta.getDrawable(R.styleable.ItemView_item_image_src);
         mItem = new Item(0, 0);
         ta.recycle();
-
-
     }
 
     @Override
@@ -180,20 +161,16 @@ public class ItemView extends View {
             case MotionEvent.ACTION_DOWN:
                 if (ensureClose) {
                     if (((0 <= cX) && (cX <= _XCloseButton + circleRadius)) && ((0 <= cY) && (cY <= _YCloseButton + circleRadius))) {
-
-
                         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 switch (which) {
                                     case DialogInterface.BUTTON_POSITIVE:
                                         //  ItemView.this.setVisibility(getRootView().GONE);
-
                                         goonaDelete = true;
                                         callbackDelete.onDelete(itemText);
                                         invalidate();
                                         break;
-
                                     case DialogInterface.BUTTON_NEGATIVE:
                                         //No button clicked
                                         break;
@@ -307,10 +284,8 @@ public class ItemView extends View {
                 circleRadius = radius;
             }
             //get X,Y of X button
-
             //draw text
             Paint pantText = new Paint(Paint.ANTI_ALIAS_FLAG);
-
             pantText.setColor(Color.BLACK);
             pantText.setTextSize(40);
             canvas.drawText(itemText, mX + mainComponentPadding + 30, mHeight + mX + 40, pantText);

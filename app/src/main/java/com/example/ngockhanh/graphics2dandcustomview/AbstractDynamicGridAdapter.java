@@ -6,13 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Author: alex askerov
- * Date: 9/6/13
- * Time: 7:43 PM
- */
-
-
-/**
  * Abstract adapter for {@link DynamicGridView} with sable items id;
  */
 

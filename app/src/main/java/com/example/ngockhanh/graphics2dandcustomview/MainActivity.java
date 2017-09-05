@@ -31,26 +31,20 @@ public class MainActivity extends AppCompatActivity {
 
             R.drawable.apple, R.drawable.react
     };
-    String arrString[] = {"Facebook","Game Play",
+    String arrString[] = {"Facebook", "Game Play",
             "Safari", "Game", "Google+",
-            "Instagram","Messenger","Zingmp3",
-            "IOS", "React+","Xamarin",
-            "LOL","TVC","Photo"};
+            "Instagram", "Messenger", "Zingmp3",
+            "IOS", "React+", "Xamarin",
+            "LOL", "TVC", "Photo"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         gridView = (DynamicGridView) findViewById(R.id.dynamic_grid);
-        adapter=new Adapter(this,
+        adapter = new Adapter(this,
                 new ArrayList<String>(Arrays.asList(arrString)),
                 3);
-     /*   listLogo = new ArrayList<Logo>();
-        for (int i = 0; i < arrString.length; i++) {
-            Logo lg = new Logo(arrString[i], arrImage[i]);
-            listLogo.add(lg);
-        }
-        adapter = new Adapter(this, listLogo,3);*/
         gridView.setAdapter(adapter);
 
 

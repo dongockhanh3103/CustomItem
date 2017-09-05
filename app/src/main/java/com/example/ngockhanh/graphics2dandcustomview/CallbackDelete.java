@@ -7,5 +7,6 @@ import java.util.Objects;
  */
 
 public interface CallbackDelete {
+    //the method'll call back when
     void onDelete(String object);
 }

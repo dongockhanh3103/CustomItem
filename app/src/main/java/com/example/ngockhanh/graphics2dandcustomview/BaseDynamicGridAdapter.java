@@ -10,7 +10,6 @@ public abstract class BaseDynamicGridAdapter extends AbstractDynamicGridAdapter 
     private Context mContext;
 
     private ArrayList<Object> mItems = new ArrayList<Object>();
-  //  private ArrayList<Logo> mItems = new ArrayList<Logo>();
     private int mColumnCount;
 
     protected BaseDynamicGridAdapter(Context context, int columnCount) {
@@ -24,24 +23,16 @@ public abstract class BaseDynamicGridAdapter extends AbstractDynamicGridAdapter 
         init(items);
     }
 
-
-
-
-
      private void init(List<?> items) {
          addAllStableId(items);
          this.mItems.addAll(items);
      }
-
-
 
      public void set(List<?> items) {
          clear();
          init(items);
          notifyDataSetChanged();
      }
-
-
 
     public void clear() {
         clearStableIdMap();
@@ -62,22 +53,17 @@ public abstract class BaseDynamicGridAdapter extends AbstractDynamicGridAdapter 
         notifyDataSetChanged();
     }
 
-
-
     public void add(List<?> items) {
         addAllStableId(items);
         this.mItems.addAll(items);
         notifyDataSetChanged();
     }
 
-
-
     public void remove(Object item) {
         mItems.remove(item);
         removeStableID(item);
         notifyDataSetChanged();
     }
-
 
     @Override
     public int getCount() {
@@ -98,7 +84,6 @@ public abstract class BaseDynamicGridAdapter extends AbstractDynamicGridAdapter 
         this.mColumnCount = columnCount;
         notifyDataSetChanged();
     }
-
     @Override
     public void reorderItems(int originalPosition, int newPosition) {
         if (newPosition < getCount()) {
@@ -106,7 +91,6 @@ public abstract class BaseDynamicGridAdapter extends AbstractDynamicGridAdapter 
             notifyDataSetChanged();
         }
     }
-
     @Override
     public boolean canReorder(int position) {
         return true;

@@ -13,15 +13,6 @@ public class Adapter extends BaseDynamicGridAdapter  {
         super(context, items, columnCount);
     }
 
-/*
-
-    public Adapter(Context context, List<Logo> items, int columnCount) {
-        super(context, items, columnCount);
-    }
-*/
-
-
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         CheeseViewHolder holder;
@@ -33,7 +24,6 @@ public class Adapter extends BaseDynamicGridAdapter  {
             holder = (CheeseViewHolder) convertView.getTag();
         }
         holder.build(getItem(position).toString());
-
         return convertView;
     }
 
@@ -44,12 +34,9 @@ public class Adapter extends BaseDynamicGridAdapter  {
 
         private CheeseViewHolder(View view) {
             itemView = (ItemView) view.findViewById(R.id.itemView);
-           // image = (ImageView) view.findViewById(R.id.item_img);
         }
 
         void build(final String title) {
-           /* titleText.setText(title);
-            image.setImageResource(R.drawable.ic_launcher);*/
             itemView.setItemText(title);
           /*  Drawable drawable=getContext().getResources().getDrawable(image);
             itemView.setDrawable(drawable);*/

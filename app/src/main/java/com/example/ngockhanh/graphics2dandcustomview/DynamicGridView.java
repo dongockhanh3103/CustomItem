@@ -40,11 +40,6 @@ import java.util.Stack;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * Author: alex askerov
- * Date: 9/6/13
- * Time: 12:31 PM
- */
 public class DynamicGridView extends GridView {
     private static final int INVALID_ID = -1;
 
