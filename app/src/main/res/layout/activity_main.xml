@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-
+    android:orientation="horizontal"
     tools:context="com.example.ngockhanh.graphics2dandcustomview.MainActivity">
 
-    <com.example.ngockhanh.graphics2dandcustomview.ItemView
 
+    <com.example.ngockhanh.graphics2dandcustomview.DynamicGridView
+        android:id="@+id/dynamic_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:item_radius="20dp"
-        app:item_image_src="@drawable/image"
-        app:item_size="600px"/>
-
+        android:gravity="center"
+        android:horizontalSpacing="0dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:verticalSpacing="0dp" />
 
 
 </LinearLayout>

@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Graphics2DandCustomView.iml" filepath="$PROJECT_DIR$/Graphics2DandCustomView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dynamicgrid/dynamicgrid.iml" filepath="$PROJECT_DIR$/dynamicgrid/dynamicgrid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iosicon/iosicon.iml" filepath="$PROJECT_DIR$/iosicon/iosicon.iml" />
     </modules>
   </component>
 </project>

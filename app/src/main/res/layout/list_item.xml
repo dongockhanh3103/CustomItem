@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.example.ngockhanh.graphics2dandcustomview.ItemView
+        android:id="@+id/itemView"
+        android:layout_width="250px"
+        android:layout_height="250px"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:visibility="visible"
+        app:item_image_src="@drawable/image"
+        app:item_radius="55px"
+        app:item_size="250px"
+        app:textItem="my App" />
+</LinearLayout>
